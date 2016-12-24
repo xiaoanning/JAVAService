@@ -1,0 +1,12 @@
+package entity;
+
+public class Person
+{
+	Integer id ;
+	String name ;
+	 mobile varchar2(11) not null unique check( length(mobile)=11 ),
+	 telphone varchar2(13) check( telphone like '___%-_______%'),
+	 email varchar2(30) unique check( email like '_%@%_' ),
+	 city varchar2(20),
+	 birthday date
+}

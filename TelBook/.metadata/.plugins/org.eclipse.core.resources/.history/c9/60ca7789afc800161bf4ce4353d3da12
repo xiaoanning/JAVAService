@@ -1,0 +1,13 @@
+package util;
+
+import java.util.Date;
+import java.sql.Date; 
+
+public class DateTypeTransfer 
+{
+	/**
+	 * 		
+	 */
+	
+	Date date = new Date();
+}

@@ -1,0 +1,14 @@
+package entity;
+
+import java.sql.Date;
+
+public class Person
+{
+	Integer id ;
+	String name ;
+	String mobile ;
+	String telphone ;
+	String email ;
+	String city ;
+	Date birthday ;
+}

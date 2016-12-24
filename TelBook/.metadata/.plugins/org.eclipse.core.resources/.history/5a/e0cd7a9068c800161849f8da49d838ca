@@ -1,0 +1,89 @@
+package service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import util.JDBCUtil;
+import dao.PersonDaoImplement;
+import entity.Person;
+
+public class TelbookServiceImplement implements TelbookService
+{
+
+	public Person getPersonById(Integer id) 
+	{
+		Connection con = null ;
+		PersonDaoImplement pdi = new PersonDaoImplement() ;
+		
+		try
+		{
+			 con = JDBCUtil.getConnection() ;
+			 con.setAutoCommit(false);
+			 
+			 Person p = pdi.queryPersonById(id) ;
+			 con.commit();
+			 
+			 return p ;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			try {
+				con.rollback();
+			} catch (SQLException e1)
+			{
+				e1.printStackTrace();
+			}
+			return null ;
+		}finally
+		{
+			try 
+			{
+				JDBCUtil.close(null, null, con);
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	public void regist(String name, String mobile, String telphone,
+			String email, String city, String birth)
+	{
+
+		
+	}
+
+	public List<Person> getAllPerson() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Person> getPersonByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Person> getPersonByMobile(String mobile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void dropPersonById(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void editPersonMessage(Integer id, String name, String mobile,
+			String telphone, String email, String city, String date) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Person> happyBirthday() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
